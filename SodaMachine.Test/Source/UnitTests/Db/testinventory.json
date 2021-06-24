@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "pepsi",
+    "Price": 10,
+    "NumberInStock": 1
+  },
+  {
+    "Name": "drpepper",
+    "Price": 15,
+    "NumberInStock": 2
+  },
+  {
+    "Name": "7up",
+    "Price": 20,
+    "NumberInStock": 3
+  }
+]

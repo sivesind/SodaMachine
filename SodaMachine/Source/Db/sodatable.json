@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "coke",
+    "Price": 20,
+    "NumberInStock": 5
+  },
+  {
+    "Name": "sprite",
+    "Price": 15,
+    "NumberInStock": 3
+  },
+  {
+    "Name": "fanta",
+    "Price": 15,
+    "NumberInStock": 3
+  }
+]
