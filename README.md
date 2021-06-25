@@ -1,5 +1,5 @@
 # SodaMachine
-Sample project for rehearsing concepts.
+Sample project for practice
 
 ## Codemap
 ![Codemap](/images/codemap.png)
