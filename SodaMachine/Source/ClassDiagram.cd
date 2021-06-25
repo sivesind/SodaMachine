@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SodaMachine.Repository.SodaRepository">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="SodaMachine.Repository.SodaRepository.SodaDbRow" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Source\Db\SodaRepository.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAAAAACAAAAAEAAAQAAAIAAAAAAAgAAAAAAAABAAAA=</HashCode>
+      <FileName>Source\Db\SodaRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SodaMachine.DomainModel.UserCommand.Base.UserCommandBase" Collapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAQAAACAAAAAAEAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Source\DomainModel\UserCommand\Base\UserCommandBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SodaMachine.DomainModel.UserCommand.InsertCommand" Collapsed="true">
+    <Position X="16" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\DomainModel\UserCommand\InsertCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SodaMachine.DomainModel.UserCommand.OrderCommand" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\DomainModel\UserCommand\OrderCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SodaMachine.DomainModel.UserCommand.RecallCommand" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\DomainModel\UserCommand\RecallCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SodaMachine.DomainModel.UserCommand.SmsOrderCommand" Collapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\DomainModel\UserCommand\SmsOrderCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SodaMachine.DomainModel.CashRegister">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAEIAAgAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Source\DomainModel\CashRegister.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SodaMachine.DomainModel.Soda">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\DomainModel\Soda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SodaMachine.DomainModel.SodaMachine">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAACCAAAAAIEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\DomainModel\SodaMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SodaMachine.UserInterface.UserInterfaceImplementation" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\UserInterface\UserInterfaceImplementation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="SodaMachine.DomainModel.UserCommand.Base.IUserCommand">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Source\DomainModel\UserCommand\Base\IUserCommand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SodaMachine.UserInterface.IUserInterface">
+    <Position X="2.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\UserInterface\IUserInterface.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
