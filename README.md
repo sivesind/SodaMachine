@@ -1,7 +1,7 @@
 # SodaMachine
 Sample project for practice
 
-## Codemap
+## Reference/dependency map
 ![Codemap](/images/codemap.png)
 
 ## Class diagram
