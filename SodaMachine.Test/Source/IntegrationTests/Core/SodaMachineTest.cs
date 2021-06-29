@@ -1,6 +1,8 @@
 using FluentAssertions;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
+using SodaMachine.DomainModel.UserCommand;
+using SodaMachine.DomainModel.UserCommand.Base;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -12,9 +14,16 @@ namespace SodaMachine.Test
     {
         private readonly DomainModel.SodaMachine _sodaMachine;
 
+        //TODO: add DI
         public SodaMachineTest() : base()
         {
-            _sodaMachine = new DomainModel.SodaMachine(_cashRegister, _sodaRepository, _userInterface);
+            var commands = new List<IUserCommand>() { 
+                new InsertCommand(_cashRegister, _sodaRepository, _userInterface),
+                new OrderCommand(_cashRegister, _sodaRepository, _userInterface),
+                new RecallCommand(_cashRegister, _sodaRepository, _userInterface),
+                new SmsOrderCommand(_cashRegister, _sodaRepository, _userInterface)
+            };
+            _sodaMachine = new DomainModel.SodaMachine(_cashRegister, _sodaRepository, _userInterface, commands);
         }
 
         /// <summary>

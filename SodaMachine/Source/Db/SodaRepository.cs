@@ -24,7 +24,7 @@ namespace SodaMachine.Repository
         /// Reads sodas from jsonfile. FIlepath can be overridden for testing.
         /// </summary>
         /// <param name="jsonFilePath">To override jsonfile for testing</param>
-        internal SodaRepository(string jsonFilePath = null)
+        public SodaRepository(string jsonFilePath = null)
         {
             //override path?
             if (!String.IsNullOrWhiteSpace(jsonFilePath))

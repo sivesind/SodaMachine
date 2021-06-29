@@ -15,13 +15,15 @@ namespace SodaMachine.DomainModel
     {
         private readonly CashRegister _cashRegister;
         private readonly IUserInterface _userInterface;
+        private readonly IList<IUserCommand> _userCommands;
         private readonly SodaRepository _sodaRepository;
 
-        public SodaMachine(CashRegister cashRegister, SodaRepository repository, IUserInterface userInterface)
+        public SodaMachine(CashRegister cashRegister, SodaRepository repository, IUserInterface userInterface, IEnumerable<IUserCommand> userCommands)
         {
             _cashRegister = cashRegister;
             _sodaRepository = repository;
             _userInterface = userInterface;
+            _userCommands = userCommands.ToList();
         }
 
         /// <summary>
@@ -33,19 +35,17 @@ namespace SodaMachine.DomainModel
         /// to true</param>
         public void Start(bool runContinuously = true)
         {
-            //get usercommands in machine
-            List<IUserCommand> availableUserCommands = DiscoverUserCommands();
             do
             {
                 try
                 {
                     //show menu
                     string userInputString = _userInterface.ShowMainMenuAndWaitForInput(
-                        availableUserCommands.Select(command => command.MenuItemText).ToList(),
+                        _userCommands.Select(command => command.MenuItemText).ToList(),
                         _cashRegister.CurrentAmount);
 
                     //handle command in userinput, if given usercommand is supported, otherwise ignore it
-                    foreach (IUserCommand userCommand in availableUserCommands)
+                    foreach (IUserCommand userCommand in _userCommands)
                     {
                         if (userInputString.ToLower().StartsWith(userCommand.CommandText))
                         {
@@ -64,31 +64,6 @@ namespace SodaMachine.DomainModel
             }
             while (runContinuously);
 
-        }
-
-        /// <summary>
-        /// Emulate DI framework, it's considered overkill to add DI to entire app. This methods
-        /// discovers implementations of <see cref="IUserCommand"/> and dynamically instantiates them. 
-        /// This is done to minimize the process of adding new functions to the sodamachine.
-        /// </summary>
-        /// <returns>List of available usercommands in the machine</returns>
-        private List<IUserCommand> DiscoverUserCommands()
-        {
-            //find all types for implementations of IUserCommand
-            IEnumerable<Type> listUserCommandTypes = System.Reflection.Assembly.GetExecutingAssembly()
-                    .GetTypes()
-                    .Where(type => typeof(IUserCommand).IsAssignableFrom(type) && !type.IsInterface);
-
-            List<IUserCommand> availableUserCommands = new List<IUserCommand>();
-
-            //instantiate all usercommands and add to returnlist
-            foreach (Type type in listUserCommandTypes)
-            {
-                IUserCommand instance = (IUserCommand)Activator.CreateInstance(type, new object[] { _cashRegister, _sodaRepository, _userInterface });
-                availableUserCommands.Add(instance);
-            }
-
-            return availableUserCommands;
         }
     }
 }

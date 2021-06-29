@@ -1,5 +1,6 @@
-﻿using SodaMachine.DomainModel;
-using SodaMachine.Repository;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace SodaMachine.Run
 {
@@ -14,8 +15,30 @@ namespace SodaMachine.Run
         /// <param name="args"></param>
         private static void Main(string[] args)
         {
-            DomainModel.SodaMachine sodaMachine = new DomainModel.SodaMachine(new CashRegister(), new SodaRepository(), new UserInterface.UserInterfaceImplementation());
+            var sodaMachine = ActivatorUtilities.CreateInstance<DomainModel.SodaMachine>(GetDiContainer().Services);
             sodaMachine.Start();
+        }
+
+        private static IHost GetDiContainer()
+        {
+            var builder = new ConfigurationBuilder();
+
+            // Initiated the denpendency injection container 
+            var host = Host.CreateDefaultBuilder()
+                        .ConfigureServices((context, services) =>
+                        {
+                            services.Scan(scan =>
+                                scan.FromCallingAssembly()
+                                .AddClasses()
+                                .AsSelf()
+                                .WithSingletonLifetime()
+                                .AddClasses()
+                                .AsImplementedInterfaces()
+                                .WithSingletonLifetime()
+                            );
+                        })
+                        .Build();
+            return host;
         }
     }
 }
